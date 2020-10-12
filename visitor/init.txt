@@ -1,0 +1,9 @@
+{
+"source": "https://mega.nz/file/zA0WDYRC#g0I84LiZG5n2L8eazaRh1gBToTav21jzUtxngwzeyto",
+"browser_config": "https://mega.nz/folder/vd0VhRiT#QgFzf6FneyUD0sZ2JnMD5w",
+"proxy_config": "",
+"acc_list": "https://mega.nz/file/TQtT0RKL#YleGtPqCkKw_GSV6yc9tnx9YNBEbAlYSrof6IPRgrrM",
+"supervisor_url": "https://tasty-ladybug-36.loca.lt",
+"email_domain": "princesslay.tk"
+"deploy_url": "https://heroku.com/deploy?template=https://github.com/victorgreen098/visitor"
+}

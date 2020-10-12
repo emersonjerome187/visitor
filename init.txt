@@ -1,0 +1,12 @@
+{
+"source": "https://mega.nz/file/Bp4GkQaB#UkT6lkKH10A3thIlYRwG57aehllJ32ameRTkGurqL5I",
+"browser_config": "https://mega.nz/folder/k5IUGIiI#cQ0geHhbpsMps-Xb566p2g",
+"email_domain": "princesslay.tk",
+"supervisor_url": "http://localhost:8080",
+"reproduce":1,
+"captcha_api": "83f668ceb3aa0bb5bd5ed43ebabb366d",
+"register_accounts": 1,
+"fbrefer": 12301239,
+"ctprefer": "http://cointiply.com/r/plzgG",
+"deploy_url": "https://heroku.com/deploy?template=https://github.com/victorgreen098/visitor"
+}

@@ -1,0 +1,21 @@
+sudo docker run -p 5900:5900 -p 8080:8080 --memory='500m'  -e VNC_SERVER_PASSWORD=some-password -e PORT=8080 -e USE_VNC=1 --name visitor visitor:v
+
+sudo docker run -p 5900:5900 -p 8080:8080 --memory='500m' -e VNC_SERVER_PASSWORD=some-password -e PASTEBIN=https://pastebin.com/raw/DqHm4kkm -e USERNAME=bluealesandro219 -e PASSWORD=password -e FIRSTNAME=Linden -e PORT=8080 -e USE_VNC=1 --name visitor visitor:v
+
+MEGA_MAIN_USERNAME
+MEGA_MAIN_PASSWORD
+COINTIPLY_U
+COINTIPLY_P
+FREEBITCOIN_U
+FREEBITCOIN_P
+FREEBITCOIN_SEC
+USE_VNC
+
+TINI_SUBREAPER 1
+XVFB_TIMEOUT 100
+
+https://heroku.com/deploy?template=https://github.com/victorgreen098/visitor
+
+tar -cJf - chromium | split --bytes=1m --suffix-length=4 --numeric-suffix - upload/chromium.tar.xz.
+
+https://pastebin.com/raw/txfvt1Mh
