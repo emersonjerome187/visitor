@@ -6,6 +6,7 @@ import importlib.machinery
 import requests
 import json
 from os import path
+import os
 import re
 import pyperclip
 
@@ -23,6 +24,7 @@ def cointiply():
 		with open('../init.txt', 'r') as infile:
 			init = json.load(infile)
 
+	os.environ['XDG_SESSION_TYPE'] = "vlaue"
 
 	login_atmps = 0
 	while True:

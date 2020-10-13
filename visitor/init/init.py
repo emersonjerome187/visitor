@@ -144,6 +144,17 @@ def init():
 						time.sleep(random.randint(8000, 9000)/1000)
 						visitor_lib.move_to_area_relative("init/proceed.png", 33, 224, 237, 27, True)
 						time.sleep(random.randint(35000, 36000)/1000)
+						visitor_lib.move_to_area_relative("visitor_lib/home_chrome.png", -8, 92, 205, 152, False)
+						pyautogui.scroll(-20)
+						move_to_area(504, 642, 36, 10, 20, random.randint(4, 12))
+						pyautogui.mouseDown()
+						time.sleep(random.randint(20, 100)/1000)
+						pyautogui.mouseUp()
+						move_to_area(504, 642, 36, 10, 20, random.randint(4, 12))
+						pyautogui.mouseDown()
+						time.sleep(random.randint(20, 100)/1000)
+						pyautogui.mouseUp()
+						time.sleep(random.randint(15000, 16000)/1000)
 						hs = visitor_lib.move_to_area_relative("init/hm.png", -207, 11, 102, 24, False)
 						if hs == "success":
 							visitor_lib.browser_open_url(init['deploy_url'])
@@ -163,6 +174,8 @@ def init():
 							pyautogui.press('tab')
 							pyautogui.write(un, interval = 0.1)
 							pyautogui.press('tab')
+							pyautogui.scroll(-8)
+							time.sleep(random.randint(3000, 4000)/1000)
 							done = visitor_lib.move_to_area_relative("init/da.png", 10, 16, 90, 22, True)
 							if done == 'success':
 								if x == 1: ac1 = 1
@@ -196,6 +209,8 @@ def init():
 								pyautogui.press('tab')
 								pyautogui.write(un, interval = 0.1)
 								pyautogui.press('tab')
+								pyautogui.scroll(-8)
+								time.sleep(random.randint(3000, 4000)/1000)
 								done = visitor_lib.move_to_area_relative("init/da.png", 10, 16, 90, 22, True)
 								if done == 'success':
 									if x == 1: ac1 = 1

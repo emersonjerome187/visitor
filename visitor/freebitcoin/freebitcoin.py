@@ -34,6 +34,8 @@ def freebitcoin():
 	except:
 		secret = ""
 
+	os.environ['XDG_SESSION_TYPE'] = "vlaue"
+
 	while True:
 
 		visitor_lib.browser_open_url('https://freebitco.in/')
@@ -123,10 +125,7 @@ def freebitcoin():
 				pyautogui.click()
 				pyautogui.click()
 				pyautogui.hotkey('ctrl', 'c')
-				try:
-					rps = int(pyperclip.paste().rstrip())
-				except:
-					rps = 0
+				rps = int(str(pyperclip.paste().rstrip()).replace(',', ''))
 				time.sleep(2)
 				# if rps >= 300:
 				# 	pyautogui.scroll(-20)
@@ -237,8 +236,9 @@ def freebitcoin():
 					pyautogui.click()
 					pyautogui.click()
 					pyautogui.hotkey('ctrl', 'c')
-					visitor_lib.move_to_area_relative("freebitcoin/enable2fa.png", -27, -51, 170, 20, True)
+					time.sleep(3)
 					secret = pyperclip.paste().rstrip()
+					visitor_lib.move_to_area_relative("freebitcoin/enable2fa.png", -27, -51, 170, 20, True)
 					try:
 						totp = pyotp.TOTP(secret)
 						time.sleep(random.randint(2000, 3000)/1000)

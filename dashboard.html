@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		.row { display: flex; font-size: 9.5px; text-align: center; color: grey }
+		.cell { border-radius: 2px; width: 20px; height: 20px; margin: 1px; background: lightgrey;}
+		.tooltip {
+		  position: relative;
+		  display: inline-block;
+		}
+
+		.tooltip .tooltiptext {
+		  visibility: hidden;
+		  width: 120px;
+		  background-color: black;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 5px 0;
+		  opacity: 0.9;
+		  
+		  /* Position the tooltip */
+		  position: absolute;
+		  z-index: 1;
+		  width: 120px;
+		  top: 100%;
+		  left: 50%;
+		  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+		}
+
+		.up {
+			background: lightgreen;
+		}
+		.down {
+			background: tomato;
+		}
+
+		.tooltip:hover .tooltiptext {
+		  visibility: visible;
+		}
+		#container {
+			margin-top: 20px;
+			margin-left: 50px;
+		}
+	</style>
+	<div id="container"></div>
+	<script type="text/javascript">
+
+		function httpGetAsync(theUrl, callback)
+		{
+		    var xmlHttp = new XMLHttpRequest();
+		    xmlHttp.onreadystatechange = function() { 
+		        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		            callback(xmlHttp.responseText);
+		    }
+		    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+		    xmlHttp.send(null);
+		}
+
+		httpGetAsync("http://quintonjeremysv.herokuapp.com/data", function(res){
+			bots = JSON.parse(res).data;
+
+			let n=20, s='', c=25;
+
+			for(let i=0; i<n; i++) {
+				s+= '<div class="row">'
+				for(let j=0; j<c; j++) {
+					index = (i*c+j);
+					status = 'down';
+					if(bots[index].status != null) status='up';
+					info = index.toString() + "<br>";
+					info += bots[index].name + "<br>";
+					data = JSON.parse(bots[index].data);
+					info += `fbbalance: ${data.fbbalance}<br>`;
+					info += `${data.fbsecret}<br>`;
+					info += `ctpbalance: ${data.ctpbalance}<br>`;
+					info += `satus: ${bots[index].status}<br>`;
+					s+= `<div class="cell tooltip ${status}"> <span class="tooltiptext">${info} </span></div>`;
+				}
+				s+= '</div>'
+			}
+
+			container.innerHTML = s;
+		});
+	</script>
+</body>
+</html>
+

@@ -1,6 +1,6 @@
 {
   "name": "visitor",
-  "repository": "https://github.com/victorgreen098/visitor",
+  "repository": "https://github.com/russletempers/visitor",
   "stack": "container",
   "env": {
     "FIRSTNAME": {},
