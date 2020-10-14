@@ -83,6 +83,7 @@ def init():
 			ln = acct[3]
 			un = acct[0]
 			pw = acct[1]
+			acdbid = acct[4]
 			em = acct[0]+"@"+email_domain
 
 			#heroku
@@ -168,6 +169,8 @@ def init():
 							pyautogui.write(un, interval = 0.1)
 							pyautogui.press('tab')
 							pyautogui.press('tab')
+							pyautogui.write(acdbid, interval = 0.1)
+							pyautogui.press('tab')
 							pyautogui.write(fn, interval = 0.1)
 							pyautogui.press('tab')
 							pyautogui.write(ln, interval = 0.1)
@@ -202,6 +205,8 @@ def init():
 								time.sleep(random.randint(1000, 2000)/1000)
 								pyautogui.write(un, interval = 0.1)
 								pyautogui.press('tab')
+								pyautogui.press('tab')
+								pyautogui.write(acdbid, interval = 0.1)
 								pyautogui.press('tab')
 								pyautogui.write(fn, interval = 0.1)
 								pyautogui.press('tab')
