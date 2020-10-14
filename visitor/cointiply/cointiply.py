@@ -17,6 +17,7 @@ visitor_lib = importlib.machinery.SourceFileLoader('visitor_lib', 'visitor_lib/v
 firstname = os.getenv('FIRSTNAME')
 username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
+dbid = os.getenv('DBID')
 
 def cointiply():
 
@@ -25,6 +26,10 @@ def cointiply():
 			init = json.load(infile)
 
 	os.environ['XDG_SESSION_TYPE'] = "vlaue"
+
+	email_domain = init['email_domain']
+	if (dbid%2) == 0:
+		email_domain = init['email_domain2']
 
 	login_atmps = 0
 	while True:
@@ -39,7 +44,7 @@ def cointiply():
 			time.sleep(random.randint(6000, 10000)/1000)
 			visitor_lib.move_to_area_relative("cointiply/email.png", 18, 21, 124, 20, True)
 			time.sleep(random.randint(1000, 2000)/1000)
-			pyautogui.write(username+"@"+init['email_domain'], interval = 0.1)
+			pyautogui.write(username+"@"+email_domain, interval = 0.1)
 			pyautogui.press('tab')
 			pyautogui.write(password, interval = 0.1)
 			pyautogui.scroll(-random.randint(5, 6))
@@ -64,7 +69,7 @@ def cointiply():
 					visitor_lib.move_to_area_relative("cointiply/fn.png", -24, 8, 113, 17, True)
 					pyautogui.write(firstname, interval = 0.1)
 					pyautogui.press('tab')
-					pyautogui.write(username+"@"+init['email_domain'], interval = 0.1)
+					pyautogui.write(username+"@"+email_domain, interval = 0.1)
 					pyautogui.press('tab')
 					pyautogui.write(password, interval = 0.1)
 					pyautogui.press('tab')

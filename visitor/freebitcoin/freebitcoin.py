@@ -17,6 +17,7 @@ visitor_lib = importlib.machinery.SourceFileLoader('visitor_lib', 'visitor_lib/v
 
 username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
+dbid = os.getenv('DBID')
 
 def freebitcoin():
 
@@ -33,6 +34,10 @@ def freebitcoin():
 			secret = ""
 	except:
 		secret = ""
+
+	email_domain = init['email_domain']
+	if (dbid%2) == 0:	
+		email_domain = init['email_domain2']
 
 	os.environ['XDG_SESSION_TYPE'] = "vlaue"
 
@@ -54,7 +59,7 @@ def freebitcoin():
 			time.sleep(random.randint(3000, 4000)/1000)
 			visitor_lib.move_to_area_relative("freebitcoin/login.png", -217, -204, 301, 20, True)
 			time.sleep(random.randint(1000, 2000)/1000)
-			pyautogui.write(username+"@"+init['email_domain'], interval = 0.1)
+			pyautogui.write(username+"@"+email_domain, interval = 0.1)
 			pyautogui.press('tab')
 			pyautogui.write(password, interval = 0.1)
 			pyautogui.press('tab')
@@ -75,7 +80,7 @@ def freebitcoin():
 
 					visitor_lib.move_to_area_relative("freebitcoin/gotit.png", 14, 18, 108, 23, True, crt=0.7)
 					visitor_lib.move_to_area_relative("freebitcoin/signup2.png", 13, -357, 118, 22, True, crt=0.7)
-					pyautogui.write(username+"@"+init['email_domain'], interval = 0.1)
+					pyautogui.write(username+"@"+email_domain, interval = 0.1)
 					pyautogui.press('tab')
 					pyautogui.write(password, interval = 0.1)
 					pyautogui.press('tab')

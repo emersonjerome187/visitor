@@ -10,6 +10,7 @@ import re
 
 
 username = os.getenv('USERNAME')
+dbid = os.getenv('DBID')
 
 visitor_lib = importlib.machinery.SourceFileLoader('visitor_lib', 'visitor_lib/visitor_lib.py').load_module()
 
@@ -45,6 +46,9 @@ def init():
 	except:
 		pass
 	
+	email_domain = init['email_domain']
+	if (dbid%2) == 0:	
+		email_domain = init['email_domain2']
 
 	if init['reproduce']:
 		while True:
@@ -79,7 +83,7 @@ def init():
 			ln = acct[3]
 			un = acct[0]
 			pw = acct[1]
-			em = acct[0]+"@"+init['email_domain']
+			em = acct[0]+"@"+email_domain
 
 			#heroku
 			for x in range(0, tries):

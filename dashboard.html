@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Monitor</title>
 </head>
 <body>
 	<style type="text/css">
@@ -47,6 +47,8 @@
 		}
 	</style>
 	<div id="container"></div>
+	<p id='up'>up: </p>
+	<p id='down'>down: </p>
 	<script type="text/javascript">
 
 		function httpGetAsync(theUrl, callback)
@@ -60,28 +62,38 @@
 		    xmlHttp.send(null);
 		}
 
-		httpGetAsync("http://quintonjeremysv.herokuapp.com/data", function(res){
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+
+		httpGetAsync(urlParams.get('url'), function(res){
 			bots = JSON.parse(res).data;
 
 			let n=20, s='', c=25;
-
+			var up = 0;
 			for(let i=0; i<n; i++) {
 				s+= '<div class="row">'
 				for(let j=0; j<c; j++) {
 					index = (i*c+j);
 					status = 'down';
-					if(bots[index].status != null) status='up';
+					if(bots[index].status != null) {
+						status='up';
+						up += 1;
+					}
 					info = index.toString() + "<br>";
 					info += bots[index].name + "<br>";
 					data = JSON.parse(bots[index].data);
 					info += `fbbalance: ${data.fbbalance}<br>`;
-					info += `${data.fbsecret}<br>`;
 					info += `ctpbalance: ${data.ctpbalance}<br>`;
+					info += `${data.fbsecret}<br>`;
 					info += `satus: ${bots[index].status}<br>`;
+					info += `ip: ${data.ip}<br>`;
 					s+= `<div class="cell tooltip ${status}"> <span class="tooltiptext">${info} </span></div>`;
 				}
 				s+= '</div>'
 			}
+
+			document.getElementById("up").innerHTML = "up: "+up;
+			document.getElementById("down").innerHTML = "down: "+(500-up);
 
 			container.innerHTML = s;
 		});
